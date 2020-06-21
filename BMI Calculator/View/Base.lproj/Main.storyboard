@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculate Veiw Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BMI_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalculateVeiwController" customModule="BMI_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,8 +127,74 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
         </scene>
+        <!--Result View Controller-->
+        <scene sceneID="L92-9p-LiM">
+            <objects>
+                <viewController id="MHz-Ny-IJA" customClass="ResultViewController" customModule="BMI_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cSk-nl-XXU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_background" translatesAutoresizingMaskIntoConstraints="NO" id="MCk-4R-bLs">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iEp-6B-sna">
+                                <rect key="frame" x="111" y="288" width="192" height="320.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR RESULT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJy-yT-KG8">
+                                        <rect key="frame" x="0.0" y="0.0" width="192" height="101.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19.5" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dbf-76-17b">
+                                        <rect key="frame" x="0.0" y="109.5" width="192" height="101.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EAT SOME MORE SNACKS!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MsK-fN-lr2">
+                                        <rect key="frame" x="0.0" y="219" width="192" height="101.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdo-c8-gEo">
+                                <rect key="frame" x="20" y="811" width="374" height="51"/>
+                                <color key="backgroundColor" red="0.29527125129999998" green="0.69140161259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="z20-63-ZXp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="RECALCULATE"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="gdo-c8-gEo" secondAttribute="trailing" id="2at-Xh-gee"/>
+                            <constraint firstItem="iEp-6B-sna" firstAttribute="centerY" secondItem="cSk-nl-XXU" secondAttribute="centerY" id="4WP-YO-pxH"/>
+                            <constraint firstItem="gdo-c8-gEo" firstAttribute="leading" secondItem="cSk-nl-XXU" secondAttribute="leadingMargin" id="58e-ph-2ex"/>
+                            <constraint firstAttribute="bottom" secondItem="MCk-4R-bLs" secondAttribute="bottom" id="6H7-w1-Wkp"/>
+                            <constraint firstItem="ZHW-HS-qUZ" firstAttribute="bottom" secondItem="gdo-c8-gEo" secondAttribute="bottom" id="9oQ-5O-zGM"/>
+                            <constraint firstAttribute="trailing" secondItem="MCk-4R-bLs" secondAttribute="trailing" id="LDf-y8-z61"/>
+                            <constraint firstItem="iEp-6B-sna" firstAttribute="centerX" secondItem="cSk-nl-XXU" secondAttribute="centerX" id="Xhi-SK-OWd"/>
+                            <constraint firstItem="MCk-4R-bLs" firstAttribute="top" secondItem="cSk-nl-XXU" secondAttribute="top" id="lRY-Dl-y1n"/>
+                            <constraint firstItem="MCk-4R-bLs" firstAttribute="leading" secondItem="cSk-nl-XXU" secondAttribute="leading" id="mcf-dg-n4S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZHW-HS-qUZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AR7-nT-flE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="850.72463768115949" y="108.48214285714285"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calculate_background" width="375" height="812"/>
+        <image name="result_background" width="375" height="812"/>
     </resources>
 </document>

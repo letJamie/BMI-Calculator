@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculateVeiwController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       fff // Do any additional setup aftfffer loading the view.
     }
 
 
