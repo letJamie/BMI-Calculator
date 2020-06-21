@@ -52,6 +52,9 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="5FA-uE-fiD"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="heightSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="gqT-bm-hK6"/>
+                                        </connections>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="216" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-zq-PPJ">
                                         <rect key="frame" x="0.0" y="666" width="374" height="21"/>
@@ -73,11 +76,14 @@
                                             <constraint firstAttribute="height" constant="21" id="nOY-v0-Dpw"/>
                                         </constraints>
                                     </stackView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.5" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="P8D-M7-vMd" userLabel="Weight Slider">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="P8D-M7-vMd" userLabel="Weight Slider">
                                         <rect key="frame" x="-2" y="697" width="378" height="61"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="3jS-6s-Guh"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="weightSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="gFD-vW-T6C"/>
+                                        </connections>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv8-4x-Juu">
                                         <rect key="frame" x="0.0" y="767" width="374" height="51"/>
@@ -86,6 +92,9 @@
                                             <constraint firstAttribute="height" constant="51" id="Ny0-C5-Jb5"/>
                                         </constraints>
                                         <state key="normal" title="Calculate"/>
+                                        <connections>
+                                            <action selector="calculatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IEP-i7-bW6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -103,6 +112,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="heightLabel" destination="9Qd-P3-NUp" id="pex-fd-nel"/>
+                        <outlet property="heightSlider" destination="tpz-j8-QrE" id="4kw-It-rgS"/>
+                        <outlet property="weightLabel" destination="XB7-mL-P9p" id="OMC-pn-RNF"/>
+                        <outlet property="weightSlider" destination="P8D-M7-vMd" id="tmn-dH-hJO"/>
+                        <segue destination="MHz-Ny-IJA" kind="presentation" identifier="goToResult" id="wXJ-DB-tPu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="216" id="ddZ-hM-HE7">
@@ -132,14 +148,14 @@
             <objects>
                 <viewController id="MHz-Ny-IJA" customClass="ResultViewController" customModule="BMI_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cSk-nl-XXU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_background" translatesAutoresizingMaskIntoConstraints="NO" id="MCk-4R-bLs">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iEp-6B-sna">
-                                <rect key="frame" x="111" y="288" width="192" height="320.5"/>
+                                <rect key="frame" x="111" y="261" width="192" height="320.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR RESULT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJy-yT-KG8">
                                         <rect key="frame" x="0.0" y="0.0" width="192" height="101.5"/>
@@ -164,13 +180,16 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdo-c8-gEo">
-                                <rect key="frame" x="20" y="811" width="374" height="51"/>
+                                <rect key="frame" x="20" y="757" width="374" height="51"/>
                                 <color key="backgroundColor" red="0.29527125129999998" green="0.69140161259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="z20-63-ZXp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="RECALCULATE"/>
+                                <connections>
+                                    <action selector="recalculatePressed:" destination="MHz-Ny-IJA" eventType="touchUpInside" id="6o2-4c-RFp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -187,6 +206,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZHW-HS-qUZ"/>
                     </view>
+                    <connections>
+                        <outlet property="adviceLabel" destination="MsK-fN-lr2" id="Sde-hc-2JU"/>
+                        <outlet property="bmiLabel" destination="dbf-76-17b" id="KLm-Gq-dMy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AR7-nT-flE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
